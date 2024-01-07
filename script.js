@@ -1,6 +1,6 @@
 function insert(num){
     var numero = document.getElementById('resultado').innerHTML;
-    if(numero == 'Digite algo' || numero == 'ERROR!'){
+    if(numero == 'Digite algo' || numero == 'Erro de formatação!!'){
         numero = ""
     }
     if(num === '*' || num === "/"){
