@@ -25,7 +25,7 @@ function back(){
 }
 function calcular(){
     var resultado = document.getElementById('resultado').innerHTML;
-    if(typeof(resultado) === 'string' && resultado != ''){
+    if(typeof(resultado) === 'string' && resultado != '' && resultado != 'Digite algo'){
         document.getElementById('resultado').innerHTML = 'Erro de formatação!!';
     }
     if(resultado){
