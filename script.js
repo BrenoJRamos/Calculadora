@@ -1,6 +1,22 @@
+function fatorial(n) {
+    var f = 1;
+    while (n > 0) {
+        f = f * n;
+        n--;
+    }
+    return f;
+}
+
 function insert(num){
     var numero = document.getElementById('resultado').innerHTML;
-
+    if(numero){
+        if(num == '!'){
+            Number(numero)
+            var fat = fatorial(numero)
+            numero = fat
+            Number(numero)
+        }
+    }     
     if(numero == 'Digite algo' || numero == 'Erro de formatação!!'){
         numero = ""
     }
@@ -9,8 +25,9 @@ function insert(num){
             num = ''
         }
     }
-    document.getElementById('resultado').innerHTML = (numero + num);
 
+    document.getElementById('resultado').innerHTML = (numero + num);
+    
     if(numero.length === 20){
         alert('Número máximo de caracteres')
         document.getElementById('resultado').innerHTML = numero;
@@ -31,7 +48,7 @@ function back(){
 }
 function calcular(){
     var resultado = document.getElementById('resultado').innerHTML;
-    if(typeof(resultado) === 'string' && resultado != '' && resultado != 'Digite algo' && resultado != 'Divisão impossível'){
+    if(typeof(resultado) === 'string' && resultado != '' && resultado != 'Digite algo' && resultado != 'Divisão impossível' ){
         document.getElementById('resultado').innerHTML = 'Erro de formatação!!';
     }
     if(resultado){
