@@ -20,16 +20,26 @@ function clean(){
 }
 function back(){
     var resultado = document.getElementById('resultado').innerHTML;
+    if(resultado == 'Erro de formatação!!' || resultado == 'Digite algo' || resultado == 'Divisão impossível'){
+        document.getElementById('resultado').innerHTML = ''
+    }
+    else{
     document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);
-    
+    }
 }
 function calcular(){
     var resultado = document.getElementById('resultado').innerHTML;
-    if(typeof(resultado) === 'string' && resultado != '' && resultado != 'Digite algo'){
+    if(typeof(resultado) === 'string' && resultado != '' && resultado != 'Digite algo' && resultado != 'Divisão impossível'){
         document.getElementById('resultado').innerHTML = 'Erro de formatação!!';
     }
     if(resultado){
-        document.getElementById('resultado').innerHTML = eval(resultado).toFixed(2);
+        var cal = document.getElementById('resultado').innerHTML = eval(resultado).toFixed(2);
+        if(cal == 'NaN' || cal == 'Infinity'){
+            document.getElementById('resultado').innerHTML = 'Divisão impossível'
+        }
+        else{
+            document.getElementById('resultado').innerHTML = cal
+        }
     }
     else{
         document.getElementById('resultado').innerHTML = 'Digite algo';
