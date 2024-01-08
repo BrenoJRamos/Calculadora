@@ -1,5 +1,6 @@
 function insert(num){
     var numero = document.getElementById('resultado').innerHTML;
+
     if(numero == 'Digite algo' || numero == 'Erro de formatação!!'){
         numero = ""
     }
@@ -14,6 +15,7 @@ function insert(num){
         alert('Número máximo de caracteres')
         document.getElementById('resultado').innerHTML = numero;
     }
+
 }
 function clean(){
     document.getElementById('resultado').innerHTML = "";
