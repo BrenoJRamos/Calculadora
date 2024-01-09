@@ -1,4 +1,10 @@
 var valor = []
+
+function limparhis(){
+    valor = []
+    limpar.innerHTML = 'Limpando...'
+
+}
 function historico(){
     var n = 0
     var botao = window.document.getElementById("historico")  
@@ -9,14 +15,22 @@ function historico(){
     var p = window.document.getElementsByTagName('p')[1]
     p.innerHTML = 'Histórico'
     p.setAttribute('id', "hist")
+    var limpar = window.document.createElement('button')
+    limpar.setAttribute('id',"limpar")
+    limpar.setAttribute('onclick', "limparhis()")
+    limpar.innerHTML = 'Limpar'
+    p.appendChild(limpar)
     var select = window.document.createElement('select')
-    select.setAttribute('size', "10")
+    select.setAttribute('size', "8")
     select.setAttribute('id',"select")
     div.appendChild(select)
+    for(n; n < valor.length; n++){
     var option = window.document.createElement('option')
-    option.innerHTML = 'olá'
+    option.setAttribute('id', "option")
+    option.setAttribute('onclick', "valorclicavel()")
+    option.innerHTML = valor[n]
     select.appendChild(option)
-
+    }
 }
 function voltar(){
     var botao = window.document.getElementById("historico")  
