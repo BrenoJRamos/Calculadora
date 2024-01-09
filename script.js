@@ -1,4 +1,6 @@
+var valor = []
 function historico(){
+    var n = 0
     var botao = window.document.getElementById("historico")  
     botao.removeAttribute('onclick')
     botao.setAttribute('onclick', "voltar()")
@@ -7,11 +9,13 @@ function historico(){
     var p = window.document.getElementsByTagName('p')[1]
     p.innerHTML = 'Histórico'
     p.setAttribute('id', "hist")
-    var select = window.document.getElementsByTagName('select')[0]
+    var select = window.document.createElement('select')
     select.setAttribute('size', "10")
     select.setAttribute('id',"select")
     div.appendChild(select)
-    option.setAttribute('id', "option")
+    var option = window.document.createElement('option')
+    option.innerHTML = 'olá'
+    select.appendChild(option)
 
 }
 function voltar(){
@@ -24,8 +28,7 @@ function voltar(){
     var p = window.document.getElementsByTagName('p')[1]
     p.innerHTML = ''
     p.removeAttribute('id')
-
-    var select = window.document.getElementsByTagName('select')[0]
+    select.remove()
     select.removeAttribute('size')
     select.removeAttribute('id')
 }
@@ -68,11 +71,9 @@ function calcular(){
     }
     if(resultado){
         var cal = document.getElementById('resultado').innerHTML = eval(resultado).toFixed(1);
-        var option = window.document.createElement('option')
-        option.innerHTML = `${resultado} = ${eval(resultado).toFixed(1)}`
-        var select = window.document.getElementsByTagName('select')[0]
-        select.appendChild(option)
-        
+        var conta = `${resultado} = ${cal}`
+        valor.push(conta)
+
         if(cal == 'NaN' || cal == 'Infinity'){
             document.getElementById('resultado').innerHTML = 'Divisão impossível'
         }
